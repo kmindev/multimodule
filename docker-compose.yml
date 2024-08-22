@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  mysql:
+    container_name: multi-module-mysql
+    image: mysql:8.0.30
+    ports:
+      - "3309:3306"
+    environment:
+      - MYSQL_DATABASE=multi_module
+      - MYSQL_USER=local_user
+      - MYSQL_PASSWORD=local123
+      - MYSQL_ROOT_PASSWORD=local123
+      - TZ=Asia/Seoul
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --skip-character-set-client-handshake
