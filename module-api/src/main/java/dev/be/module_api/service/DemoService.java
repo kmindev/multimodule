@@ -1,5 +1,6 @@
 package dev.be.module_api.service;
 
+import dev.be.module_api.exception.CustomException;
 import dev.be.module_common.enums.CodeEnum;
 import dev.be.module_common.service.CommonDemoService;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,13 @@ public class DemoService {
 
     public String find() {
         return "find";
+    }
+
+    public String exception() {
+        if (true) {
+            throw new CustomException(CodeEnum.UNKNOWN_ERROR);
+        }
+        return "exception";
     }
 
 }
