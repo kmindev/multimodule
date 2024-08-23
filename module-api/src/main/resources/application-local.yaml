@@ -11,6 +11,7 @@ spring:
   jpa:
     database: mysql
     hibernate:
+      dialect: org.hibernate.dialect.MySQLDialect
       ddl-auto: create # or `create`
     properties:
       hibernate:
