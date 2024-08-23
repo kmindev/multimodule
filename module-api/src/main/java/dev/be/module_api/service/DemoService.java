@@ -6,6 +6,7 @@ import dev.be.module_common.enums.CodeEnum;
 import dev.be.module_common.repository.MemberRepository;
 import dev.be.module_common.service.CommonDemoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
@@ -15,7 +16,11 @@ public class DemoService {
     private final CommonDemoService commonDemoService;
     private final MemberRepository memberRepository;
 
+    @Value("${profile-name}") private String profileName;
+
     public String save() {
+        System.out.println("profileName = " + profileName);
+
         memberRepository.save(Member.builder()
                 .name(Thread.currentThread().getName())
                 .build());
